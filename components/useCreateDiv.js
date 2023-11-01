@@ -1,15 +1,13 @@
 import { ref } from 'vue';
-
+const divList = ref([]);
 export function useCreateDiv() {
-  const divList = ref([]);
-
   function createDiv(value1, value2) {
     divList.value.push({ value1, value2 });
   }
 
-  function deleteDiv(index){
+  function deleteTask(index){
     divList.value.splice(index, 1);
   }
 
-  return { divList, createDiv, deleteDiv };
+  return { divList, createDiv, deleteTask: deleteTask };
 }
